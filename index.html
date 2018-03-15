@@ -22,13 +22,18 @@
     <br>
     <div class="container">
         <div class="row justify-content-between">
-            <div class="col-12 col-md-8" id="giphyContainer">
+            <div class="col-12 col-md-8">
                 Start by creating your band button. Then click on it below for some GIPHY magic!
             </div>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Create a Band Button" aria-label="Search">
-                <button class="btn btn-outline-dark my-2 my-sm-0 searchBtn" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Create a Band Button" aria-label="Search" id="topic-input">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
             </form>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-8" id="giphyContainer">
+
+            </div>
         </div>
     </div>
 
@@ -36,7 +41,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script scr="assets/javascript/logic.js"></script>
+    <script src="assets/javascript/logic.js"></script>
 </body>
 
 </html>
