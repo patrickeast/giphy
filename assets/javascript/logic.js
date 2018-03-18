@@ -1,7 +1,7 @@
 var bands = [
-    "Ocean Avenue",
-    "Adam's Song",
-    "Sweet Caroline"
+    // "Ocean Avenue",
+    // "Adam's Song",
+    // "Sweet Caroline"
 ];
 
 function showStillGiphy() {
