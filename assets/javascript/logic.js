@@ -1,48 +1,93 @@
-// API KEY = kP5Rfl1iakIqhhB6Zqtlndtr4azKZ3s2
-
-var topics = [
-    "Yellowcard",
-    "New Found Glory",
-    "The Ataris",
-    "Boys Like Girls",
-    "My Chemical Romance",
-    "American Hi-Fi",
-    "Taking Back Sunday",
-    "Cute is What We Aim For",
-    "The Academy Is...",
-    "Motion City Soundtrack"
+var bands = [
+    "Ocean Avenue",
+    "Adam's Song",
+    "Sweet Caroline"
 ];
+
+function showStillGiphy() {
+    var bandSearch = $(this).attr("data-name");
+    var tag = "bands";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + bandSearch + "&tag=" + tag + "&api_key=kP5Rfl1iakIqhhB6Zqtlndtr4azKZ3s2&limit=5";
+
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+
+    }).then(function (response) {
+        // console.log(response);
+        // console.log(queryURL);
+
+        for (var i = 0; i < response.data.length; i++) {
+            console.log(response);
+            var bandDisplay = $("<span>");
+            var stillImage = response.data[i].images.fixed_height_still.url;
+            var gifImage = response.data[i].images.fixed_height.url;
+
+
+            var result = $("<img>").attr({
+                src: stillImage,
+                stillImage: stillImage,
+                animateImage: gifImage,
+                datastate: "still",
+                class: "gif"
+            })
+
+            bandDisplay.html(result);
+
+            $("#giphyContainer")
+                .prepend(bandDisplay);
+
+        }
+
+        function showAnimateGiphy() {
+            var state = $(this).attr("datastate");
+
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("animateImage")),
+                    $(this).attr("datastate", "animate");
+            }
+
+            else if (state === "animate") {
+                $(this).attr("src", $(this).attr("stillImage"));
+                $(this).attr("datastate", "still");
+            }
+        }
+        $(document).on("click", ".gif", showAnimateGiphy);
+    });
+}
+
 
 function makeButtons() {
 
-    $("#giphyContainer").empty();
+    $("#buttonContainer").empty();
 
-    for (var i = 0; i < topics.length; i++) {
+    for (var i = 0; i < bands.length; i++) {
         var newButton = $("<button>");
         newButton
             .addClass("newBtn")
-            .attr("data-name", topics[i])
-            .text(topics[i]);
-        $("#giphyContainer").append(newButton);
-    }
+            .addClass("btn btn-danger")
+            .attr("data-name", bands[i])
+            .text(bands[i]);
+        $("#buttonContainer").append(newButton);
+    };
 }
 
 $("#searchBtn").on("click", function (event) {
 
+    
     event.preventDefault();
-
+    
     var topic = $("#topic-input").val().trim();
-
-    topics.push(topic);
+    
+    bands.push(topic);
+    console.log(topic);
+    
+    $("#topic-input").val("");
 
     makeButtons();
-
 });
 
+$(document).on("click", ".newBtn", showStillGiphy);
+
 makeButtons();
-// $("searchBtn").on("click", function () {
-//     var topics = $(".form-control").attr("data", "object");
-//     var newButton = $("<button>");
-//     newButton.attr("class", "newBtn");
-//     topics[i].append(newButton);
-// })

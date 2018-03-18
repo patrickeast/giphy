@@ -1,13 +1,14 @@
 body, html {
     height: 100%;
-    color: #444;
+    /* background-image: url("../images/cassette.jpg"); */
+    /* background-size: cover; */
 }
 
 .bg { 
     /* The image used */
     background-image: url("../images/nomusicnolife.jpg");
 
-    /* Full height */
+    /* Half height */
     height: 50%; 
 
     /* Center and scale the image nicely */
@@ -17,14 +18,13 @@ body, html {
 }
 
 .newBtn {
-    background-color: rgb(2, 168, 168);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.newBtn:hover {
-    background-color: rgb(0, 145, 145);
+.gif {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
 }

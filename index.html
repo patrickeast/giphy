@@ -5,39 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GIPHY Band</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>GIPHY Magic</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1"></span>
-        <span class="navbar-brand mb-0 h1">GIPHY API</span>
-        <span class="navbar-brand mb-0 h1"></span>
-    </nav> -->
+
     <div class="bg"></div>
     <br>
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-12 col-md-8">
-                Start by creating your band button. Then click on it below for some GIPHY magic!
+                Type in your favorite song title to the right to make your own button. Then click on it below for some GIPHY magic!
             </div>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Create a Band Button" aria-label="Search" id="topic-input">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
+                <button class="btn btn-danger my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
             </form>
         </div>
+        <br>
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-8" id="giphyContainer">
-
-            </div>
+            <div class="col-12 col-md-8 col-lg-10" id="buttonContainer"></div>
+            <div class="col-12" id="giphyContainer"></div>
         </div>
     </div>
-
-
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
