@@ -7,7 +7,7 @@ var bands = [
 function showStillGiphy() {
     var bandSearch = $(this).attr("data-name");
     var tag = "bands";
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + bandSearch + "&tag=" + tag + "&api_key=kP5Rfl1iakIqhhB6Zqtlndtr4azKZ3s2&limit=5";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + bandSearch + "&tag=" + tag + "&api_key=kP5Rfl1iakIqhhB6Zqtlndtr4azKZ3s2&limit=4";
 
 
     $.ajax({
@@ -32,11 +32,12 @@ function showStillGiphy() {
                 datastate: "still",
                 class: "gif"
             })
-
+            var title = response.data[i].title;
+            var pOne = $("<p>").text("Title: " + title);
             bandDisplay.html(result);
-
-            $("#giphyContainer")
-                .prepend(bandDisplay);
+          
+            $("#giphyContainer").append(bandDisplay);
+            $("#giphyContainer").append(pOne);
 
         }
 
@@ -49,8 +50,8 @@ function showStillGiphy() {
             }
 
             else if (state === "animate") {
-                $(this).attr("src", $(this).attr("stillImage"));
-                $(this).attr("datastate", "still");
+                $(this).attr("src", $(this).attr("stillImage")),
+                    $(this).attr("datastate", "still");
             }
         }
         $(document).on("click", ".gif", showAnimateGiphy);
@@ -75,14 +76,14 @@ function makeButtons() {
 
 $("#searchBtn").on("click", function (event) {
 
-    
+
     event.preventDefault();
-    
+
     var topic = $("#topic-input").val().trim();
-    
+
     bands.push(topic);
     console.log(topic);
-    
+
     $("#topic-input").val("");
 
     makeButtons();
