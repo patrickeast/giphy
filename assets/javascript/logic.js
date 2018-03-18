@@ -76,7 +76,6 @@ function makeButtons() {
 
 $("#searchBtn").on("click", function (event) {
 
-
     event.preventDefault();
 
     var topic = $("#topic-input").val().trim();
