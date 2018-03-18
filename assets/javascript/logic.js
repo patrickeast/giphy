@@ -1,8 +1,4 @@
-var bands = [
-    // "Ocean Avenue",
-    // "Adam's Song",
-    // "Sweet Caroline"
-];
+var bands = [];
 
 function showStillGiphy() {
     var bandSearch = $(this).attr("data-name");
